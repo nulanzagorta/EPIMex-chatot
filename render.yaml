@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: chatbot-epimex-v4
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: ESTUDIO_NOMBRE
+        value: EPIMex
+      - key: CONTACTO_EMAIL
+        value: EPIMex@gmc.org.mx
+      - key: SITIO_WEB
+        value: www.epimex.net
+      - key: CONTACTO_WHATSAPP_BJ
+        value: "55 3206 7976"
+      - key: CONTACTO_WHATSAPP_TLALPAN
+        value: "55 7871 0328"
+      - key: SEDE_BJ
+        value: "Carracci 107, Col. Extremadura Insurgentes, 03740, Benito Juárez, Ciudad de México"
+      - key: SEDE_TLALPAN
+        value: "Av. San Fernando 86, Col. Belisario Domínguez, 14080, Tlalpan, Ciudad de México"
+      - key: HORARIOS_ATENCION
+        value: "Lunes a Viernes 9:00-17:00"
+      - key: WHATSAPP_SESSION_NAME
+        value: epimex_v4_production
+      - key: OPENAI_MODEL
+        value: gpt-4
+      # NOTA: OPENAI_API_KEY debe configurarse manualmente en Render Dashboard
+    autoDeploy: true
+    branch: main
+    rootDir: ./
+

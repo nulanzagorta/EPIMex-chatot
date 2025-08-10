@@ -1,0 +1,48 @@
+{
+  "name": "chatbot-epimex-v4",
+  "version": "4.0.0",
+  "description": "Chatbot avanzado para el estudio EPIMex con tamizaje automático, OpenAI GPT y recordatorios",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "node test.js",
+    "build": "echo 'No build required for Node.js app'",
+    "db:reset": "rm -f epimex_database.sqlite && node -e 'require(\"./database.js\"); console.log(\"Database reset complete\");'",
+    "stats": "node -e 'const db = require(\"./database.js\"); const dbInstance = new db(); dbInstance.getEstadisticas().then(stats => { console.log(JSON.stringify(stats, null, 2)); dbInstance.close(); });'"
+  },
+  "keywords": [
+    "chatbot",
+    "whatsapp",
+    "epimex",
+    "tamizaje",
+    "psicosis",
+    "investigacion",
+    "openai",
+    "gpt",
+    "recordatorios",
+    "salud-mental"
+  ],
+  "author": "Equipo EPIMex",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "node-cron": "^4.2.1",
+    "openai": "^5.12.2",
+    "qrcode-terminal": "^0.12.0",
+    "sqlite3": "^5.1.7",
+    "whatsapp-web.js": "^1.32.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nulanzagorta/EPIMex-chatbot.git"
+  }
+}
